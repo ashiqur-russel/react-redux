@@ -45,3 +45,56 @@ button:hover {
   transition: all;
   animation: forwards;
 }
+
+.form-group {
+  margin: auto;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 3rem;
+  gap: 10px;
+}
+.form-top {
+  margin: auto;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+.btn-submit {
+  margin: 1px;
+  height: 30px;
+}
+.form-bottom {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.numOfPc {
+  display: flex;
+  background-color: antiquewhite;
+  height: 20px;
+  gap: 2px;
+}
+span {
+  width: 60px;
+  border: 1px solid gray;
+  text-align: center;
+}
+.btnNumb {
+  min-height: 20px;
+  width: 30px;
+}
