@@ -1,22 +1,51 @@
 import { useReducer, useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
-import Child from "./components/Child";
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "increment":
-      return { count: state.count + action.payload };
-    case "decrement":
-      return { count: state.count - action.payload };
-    default:
-      return state;
-  }
-}
 
 function App() {
+  const initialState = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    gender: "",
+    education: "",
+    numberOfpc: 0,
+    feedback: "",
+    terms: false,
+  };
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "INPUT":
+        return {
+          ...state,
+          [action.payload.name]: action.payload.value,
+        };
+      case "INCREMENT":
+        return {
+          ...state,
+          numberOfpc: state.numberOfpc + 1,
+        };
+      case "DECREMENT":
+        return {
+          ...state,
+          numberOfpc: state.numberOfpc - 1,
+        };
+      case "TOGGLE":
+        return {
+          ...state,
+          terms: !state.terms,
+        };
+      default:
+        state;
+    }
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
   const submitHandler = (e) => {
     e.preventDefault();
+    if (state.terms) {
+      console.log(state);
+    } else {
+      console.log("Check");
+    }
   };
   return (
     <>
@@ -26,14 +55,41 @@ function App() {
             <div className="form-top">
               <div className="left">
                 <label htmlFor="fname">First Name</label>
-                <input type="text" name="fname" />
+                <input
+                  type="text"
+                  name="firstName"
+                  onBlur={(e) =>
+                    dispatch({
+                      type: "INPUT",
+                      payload: { name: e.target.name, value: e.target.value },
+                    })
+                  }
+                />
 
                 <label htmlFor="email">Email</label>
-                <input type="email" name="email" />
+                <input
+                  type="email"
+                  name="email"
+                  onBlur={(e) =>
+                    dispatch({
+                      type: "INPUT",
+                      payload: { name: e.target.name, value: e.target.value },
+                    })
+                  }
+                />
 
                 <label htmlFor="education">Education</label>
 
-                <select id="cars" name="cars">
+                <select
+                  id="education"
+                  name="education"
+                  onChange={(e) =>
+                    dispatch({
+                      type: "INPUT",
+                      payload: { name: e.target.name, value: e.target.value },
+                    })
+                  }
+                >
                   <option value="ssc">SSC</option>
                   <option value="hsc">HSC</option>
                   <option value="Bachelor">Bachelor</option>
@@ -41,40 +97,99 @@ function App() {
                 </select>
 
                 <label htmlFor="feedback">Feedback</label>
-                <textarea type="text" name="feedback" />
+                <textarea
+                  type="text"
+                  name="feedback"
+                  onBlur={(e) =>
+                    dispatch({
+                      type: "INPUT",
+                      payload: { name: e.target.name, value: e.target.value },
+                    })
+                  }
+                />
               </div>
               <div className="right">
-                <label htmlFor="fname">Last Name</label>
+                <label htmlFor="lastName">Last Name</label>
 
-                <input type="text" name="lname" />
+                <input
+                  type="text"
+                  name="lastName"
+                  onBlur={(e) =>
+                    dispatch({
+                      type: "INPUT",
+                      payload: { name: e.target.name, value: e.target.value },
+                    })
+                  }
+                />
 
                 <div className="radio-btn">
                   <p>Gender:</p> {" "}
-                  <input type="radio" id="male" name="gender" value="male" /> {" "}
-                  <label for="html">Male</label> {" "}
+                  <input
+                    type="radio"
+                    id="male"
+                    name="gender"
+                    value="male"
+                    onClick={(e) =>
+                      dispatch({
+                        type: "INPUT",
+                        payload: { name: e.target.name, value: e.target.value },
+                      })
+                    }
+                  />
+                    <label htmlFor="html">Male</label> {" "}
                   <input
                     type="radio"
                     id="female"
                     name="gender"
                     value="female"
+                    onClick={(e) =>
+                      dispatch({
+                        type: "INPUT",
+                        payload: { name: e.target.name, value: e.target.value },
+                      })
+                    }
                   />
-                    <label for="css">Female</label> {" "}
+                    <label htmlFor="css">Female</label> {" "}
                   <input
                     type="radio"
                     id="others"
                     name="gender"
-                    value="Others"
+                    value="others"
+                    onClick={(e) =>
+                      dispatch({
+                        type: "INPUT",
+                        payload: { name: e.target.name, value: e.target.value },
+                      })
+                    }
                   />
-                    <label for="others">Others</label>
+                    <label htmlFor="others">Others</label>
                 </div>
                 <label htmlFor="pc">Number of Pc</label>
 
                 <div className="numOfPc">
-                  <button className="btnNumb">+</button>
-                  <span name="number" id="number">
-                    0
+                  <button
+                    className="btnNumb"
+                    onClick={(e) =>
+                      dispatch({
+                        type: "INCREMENT",
+                      })
+                    }
+                  >
+                    +
+                  </button>
+                  <span name="numberOfpc" id="numberOfpc">
+                    {state.numberOfpc}
                   </span>{" "}
-                  <button className="btnNumb">-</button>
+                  <button
+                    className="btnNumb"
+                    onClick={(e) =>
+                      dispatch({
+                        type: "DECREMENT",
+                      })
+                    }
+                  >
+                    -
+                  </button>
                 </div>
               </div>
             </div>
@@ -82,11 +197,15 @@ function App() {
               <div>
                 <input
                   type="checkbox"
-                  id="subscribeNews"
-                  name="subscribe"
-                  value="newsletter"
+                  id="terms"
+                  name="terms"
+                  onClick={(e) =>
+                    dispatch({
+                      type: "TOGGLE",
+                    })
+                  }
                 />
-                <label for="subscribeNews">Subscribe to newsletter?</label>
+                <label htmlFor="terms">Subscribe to newsletter?</label>
               </div>
               <div className="btn-submit1">
                 <button className="btn-submit" type="submit">

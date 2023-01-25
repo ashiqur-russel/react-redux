@@ -48,7 +48,7 @@ button:hover {
 
 .form-group {
   margin: auto;
-  background-color: antiquewhite;
+  background-color: rgb(234, 231, 228);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -57,7 +57,6 @@ button:hover {
 }
 .form-top {
   margin: auto;
-  background-color: antiquewhite;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -85,7 +84,6 @@ button:hover {
 }
 .numOfPc {
   display: flex;
-  background-color: antiquewhite;
   height: 20px;
   gap: 2px;
 }
