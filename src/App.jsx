@@ -205,11 +205,15 @@ function App() {
                     })
                   }
                 />
-                <label htmlFor="terms">Subscribe to newsletter?</label>
+                <label htmlFor="terms">Terms and Conditions ?</label>
               </div>
               <div className="btn-submit1">
-                <button className="btn-submit" type="submit">
-                  Subscribe
+                <button
+                  className="btn-submit"
+                  type="submit"
+                  disabled={!state.terms}
+                >
+                  Submit
                 </button>
               </div>
             </div>
