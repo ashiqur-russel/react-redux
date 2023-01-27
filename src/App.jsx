@@ -27,21 +27,10 @@ const router = createBrowserRouter([
   },
 ]);
 
-const PRODUCT_CONTEXT = createContext();
 function App() {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    fetch("products.json")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
-
-  const value = { products };
   return (
     <div className="app-container">
-      <PRODUCT_CONTEXT.Provider value={value}>
-        <RouterProvider router={router}></RouterProvider>
-      </PRODUCT_CONTEXT.Provider>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
