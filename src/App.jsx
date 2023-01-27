@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { createContext, useReducer, useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -26,10 +26,22 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
+const PRODUCT_CONTEXT = createContext();
 function App() {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch("products.json")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
+
+  const value = { products };
   return (
     <div className="app-container">
-      <RouterProvider router={router}></RouterProvider>
+      <PRODUCT_CONTEXT.Provider value={value}>
+        <RouterProvider router={router}></RouterProvider>
+      </PRODUCT_CONTEXT.Provider>
     </div>
   );
 }
