@@ -8,9 +8,9 @@ const Navbar = () => {
     <div className="nav-container">
       <div className="logo-header">Bookholic</div>
       <div className="nav-list">
-        <Link to={""}>HOME</Link>
-        <Link to={""}>TOP RATED</Link>
-        <Link to={""}>ABOUT</Link>
+        <Link to={"/"}>HOME</Link>
+        <Link to={"/top-rated"}>TOP RATED</Link>
+        <Link to={"/about"}>ABOUT</Link>
         <Link to={""}>
           <p className="icon">
             <FaListUl />
