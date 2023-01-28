@@ -1,6 +1,9 @@
 import React from "react";
+import { useProducts } from "../../contexts/ProdcutProvider";
 import "./ProductCard";
+import { actionTypes } from "../../state/ProductState/actionType";
 const ProductCard = ({ product }) => {
+  const { dispatch } = useProducts();
   return (
     <div className="card">
       <nav>
@@ -47,7 +50,13 @@ const ProductCard = ({ product }) => {
           planter with a blue & red ribbom and butterfly pick.
         </p>
         <div>
-          <button>Add to Cart</button>
+          <button
+            onClick={() =>
+              dispatch({ type: actionTypes.ADD_TO_CART, payload: product })
+            }
+          >
+            Add to Cart
+          </button>
           <button>Wishlist</button>
         </div>
       </div>
