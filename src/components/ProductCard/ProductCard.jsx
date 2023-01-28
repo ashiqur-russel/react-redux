@@ -1,6 +1,6 @@
 import React from "react";
 import "./ProductCard";
-const ProductCard = () => {
+const ProductCard = ({ product }) => {
   return (
     <div className="card">
       <nav>
@@ -36,16 +36,20 @@ const ProductCard = () => {
         </svg>
       </nav>
       <div className="photo">
-        <img src="https://s-media-cache-ak0.pinimg.com/236x/3b/36/ca/3b36ca3afe0fa0fd4984b9eee2e154bb.jpg" />
+        <img src={product.image} />
       </div>
       <div className="description">
-        <h2>Classic Peace Lily</h2>
+        <h2>{product.model}</h2>
         <h4>Popular House Plant</h4>
         <h1>$18</h1>
         <p>
           Classic Peace Lily is a spathiphyllum floor plant arranged in a bamboo
           planter with a blue & red ribbom and butterfly pick.
         </p>
+        <div>
+          <button>Add to Cart</button>
+          <button>Wishlist</button>
+        </div>
       </div>
     </div>
   );

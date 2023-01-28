@@ -219,12 +219,12 @@ button {
   font-weight: 500;
 }
 
-button:hover {
+/* button:hover {
   background: darken(white, 2%);
   border: 1px solid #aedaa6;
   color: #aedaa6;
   cursor: pointer;
-}
+} */
 
 /* card */
 
