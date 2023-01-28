@@ -1,7 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,500,700);
+* {
+  box-sizing: border-box;
+}
 .App {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.app-container {
+  width: 80vw;
+  margin: auto;
   min-height: 100vh;
 }
 
@@ -38,12 +49,372 @@ button {
   text-align: center;
   padding: 3px;
 }
-button:hover {
+
+/* navbar  start */
+.nav-container {
+  background-color: rgb(184, 178, 246);
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  margin: 0px;
+  border-radius: 50px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  display: flex;
+  justify-content: space-between;
+}
+.logo-header {
+  display: flex;
+  margin-left: 30px;
+  justify-content: flex-start;
+  align-items: center;
+}
+.nav-list {
+  display: flex;
+  width: 100%;
+  margin-right: 30px;
+
+  justify-content: flex-end;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+}
+
+.icon {
+  background-color: rgb(226, 101, 43);
+  height: 20px;
+  width: 20px;
+  padding: 5px;
+  margin: auto;
+  border-radius: 60%;
+}
+.icon:hover {
+  background-color: rgb(240, 132, 49);
+}
+/* navbar  end */
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  margin: 10px;
+}
+
+/* card */
+
+.card {
+  width: 350px;
+  height: 375px;
+  position: relative;
+  background: white;
+  margin: 0 auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+nav {
+  width: 100%;
+  color: #727272;
+  text-transform: uppercase;
+  padding: 20px;
+  border-bottom: 2px solid #efefef;
+  font-size: 12px;
+}
+svg.heart {
+  height: 24px;
+  width: 24px;
+  float: right;
+  margin-top: -3px;
+  transition: all 0.3s ease;
   cursor: pointer;
-  background-color: rgb(202, 24, 24);
-  padding: 4px;
-  transition: all;
-  animation: forwards;
+}
+svg.heart:hover {
+  fill: red;
+}
+
+svg.arrow {
+  float: left;
+  height: 15px;
+  width: 15px;
+  margin-right: 10px;
+}
+
+.photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  max-height: 100px;
+}
+
+.description {
+  padding: 10px;
+  width: 100%;
+  border-left: 2px solid #efefef;
+}
+
+h1 {
+  color: #515151;
+  font-weight: 300;
+  padding-top: 5px;
+  margin: 0;
+  font-size: 10px;
+  font-weight: 300;
+}
+
+h2 {
+  color: #515151;
+  margin: 0;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+h4 {
+  margin: 0;
+  color: #727272;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+p {
+  font-size: 12px;
+  line-height: 20px;
+  color: #727272;
+  padding: 20px 0;
+  margin: 0;
+}
+
+button {
+  outline: 0;
+  border: 0;
+  background: none;
+  border: 1px solid #d9d9d9;
+  padding: 8px 0px;
+  margin-bottom: 30px;
+  color: #515151;
+  text-transform: uppercase;
+  width: 125px;
+  font-family: inherit;
+  margin-right: 5px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+button:hover {
+  background: darken(white, 2%);
+  border: 1px solid #aedaa6;
+  color: #aedaa6;
+  cursor: pointer;
+}
+.quantity {
+  padding-top: 20px;
+  margin-right: 60px;
+}
+.quantity input {
+  border: none;
+  text-align: center;
+  width: 32px;
+  font-size: 16px;
+  color: #43484d;
+  font-weight: 300;
+}
+
+button[class*="btn"] {
+  width: 30px;
+  height: 30px;
+  background-color: #e1e8ee;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+.minus-btn img {
+  margin-bottom: 3px;
+}
+.plus-btn img {
+  margin-top: 2px;
+  color: black;
+}
+.total-price {
+  width: 83px;
+  padding-top: 27px;
+  text-align: center;
+  font-size: 16px;
+  color: #43484d;
+  font-weight: 300;
+}
+button:focus,
+input:focus {
+  outline: 0;
+}
+
+.quantity {
+  padding-top: 20px;
+  margin-right: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* card */
+
+/* Cart container start */
+
+.shopping-cart {
+  width: 750px;
+  height: 100vh;
+  margin: 80px auto;
+  background: #ffffff;
+  box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  height: 60px;
+  border-bottom: 1px solid #e1e8ee;
+  padding: 20px 30px;
+  color: #5e6977;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.item {
+  padding: 20px 30px;
+  height: 120px;
+  display: flex;
+}
+
+.item:nth-child(3) {
+  border-top: 1px solid #e1e8ee;
+  border-bottom: 1px solid #e1e8ee;
+}
+
+.buttons {
+  position: relative;
+  padding-top: 30px;
+  margin-right: 60px;
+}
+.delete-btn,
+.like-btn {
+  display: inline-block;
+  cursor: pointer;
+}
+.delete-btn {
+  width: 18px;
+  height: 17px;
+  background: url(&amp;quot;delete-icn.svg&amp;quot;) no-repeat center;
+}
+
+.like-btn {
+  position: absolute;
+  top: 9px;
+  left: 15px;
+  background: url("twitter-heart.png");
+  width: 60px;
+  height: 60px;
+  background-size: 2900%;
+  background-repeat: no-repeat;
+}
+
+.is-active {
+  animation-name: animate;
+  animation-duration: 0.8s;
+  animation-iteration-count: 1;
+  animation-timing-function: steps(28);
+  animation-fill-mode: forwards;
+}
+
+.description span {
+  display: block;
+  font-size: 14px;
+  color: #43484d;
+  font-weight: 400;
+}
+
+.description span:first-child {
+  margin-bottom: 5px;
+}
+.description span:last-child {
+  font-weight: 300;
+  margin-top: 8px;
+  color: #86939e;
+}
+
+@keyframes animate {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: right;
+  }
+}
+/* Cart container end */
+
+@media only screen and (min-width: 718px) and (max-width: 1000px) {
+  body {
+    background-color: lightblue;
+  }
+
+  .card-container {
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .shopping-cart {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  .item {
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .image img {
+    width: 50%;
+  }
+  .image,
+  .quantity,
+  .description {
+    width: 100%;
+    text-align: center;
+    margin: 6px 0;
+  }
+  .buttons {
+    margin-right: 20px;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 717px) {
+  body {
+    background-color: rgb(224, 148, 98);
+  }
+  /* For mobile: */
+  .card-container {
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .form-group {
