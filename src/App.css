@@ -49,13 +49,7 @@ button {
   text-align: center;
   padding: 3px;
 }
-button:hover {
-  cursor: pointer;
-  background-color: rgb(202, 24, 24);
-  padding: 4px;
-  transition: all;
-  animation: forwards;
-}
+
 /* navbar  start */
 .nav-container {
   background-color: rgb(184, 178, 246);
@@ -219,12 +213,12 @@ button {
   font-weight: 500;
 }
 
-/* button:hover {
+button:hover {
   background: darken(white, 2%);
   border: 1px solid #aedaa6;
   color: #aedaa6;
   cursor: pointer;
-} */
+}
 
 /* card */
 

@@ -6,6 +6,7 @@ import Main from "./Layout/Main";
 import Home from "./components/Home/Home";
 import TopRated from "./components/TopRated/TopRated";
 import ABout from "./components/About/ABout";
+import Cart from "./components/Cart/Cart";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <ABout></ABout>,
+      },
+      {
+        path: "/cart",
+        element: <Cart></Cart>,
       },
     ],
   },

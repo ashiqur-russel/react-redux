@@ -6,21 +6,14 @@ import { BiCart } from "react-icons/bi";
 const Navbar = () => {
   return (
     <div className="nav-container">
-      <div className="logo-header">Bookholic</div>
+      <div className="logo-header">TechBD</div>
       <div className="nav-list">
         <Link to={"/"}>HOME</Link>
         <Link to={"/top-rated"}>TOP RATED</Link>
         <Link to={"/about"}>ABOUT</Link>
-        <Link to={""}>
-          <p className="icon">
-            <FaListUl />
-          </p>
-        </Link>
-        <Link to={""}>
-          <p className="icon">
-            {" "}
-            <BiCart />
-          </p>
+
+        <Link to={"/cart"}>
+          <BiCart style={{ width: "30px", height: "30px", color: "red" }} />
         </Link>
       </div>
       <div></div>
