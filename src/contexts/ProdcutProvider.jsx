@@ -1,7 +1,20 @@
-import React, { createContext, useState, useEffect, useContext } from "react";
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  useContext,
+  useReducer,
+} from "react";
+import {
+  initialState,
+  productReducer,
+} from "../state/ProductState/productReducer";
 export const PRODUCT_CONTEXT = createContext();
 
 const ProdcutProvider = ({ children }) => {
+  //reducer call
+  const [state, dispatch] = useReducer(productReducer, initialState);
+  //product state defined
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("products.json")
