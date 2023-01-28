@@ -45,3 +45,9 @@ button:hover {
   transition: all;
   animation: forwards;
 }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
