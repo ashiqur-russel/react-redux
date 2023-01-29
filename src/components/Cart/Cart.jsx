@@ -2,7 +2,6 @@ import React from "react";
 
 const Cart = () => {
   const cart = [];
-  console.log(cart);
   return (
     <div className="shopping-cart">
       <div className="title">Shopping Bag</div>

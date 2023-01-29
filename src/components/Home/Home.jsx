@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import ProductCard from "../ProductCard/ProductCard";
 
 const Home = () => {
@@ -7,10 +8,12 @@ const Home = () => {
     fetch("/products.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setProducts(data);
       });
   }, []);
+
+  const state = useSelector((state) => state);
+  console.log(state);
   return (
     <div className="card-container">
       {products.map((product, _idx) => (
