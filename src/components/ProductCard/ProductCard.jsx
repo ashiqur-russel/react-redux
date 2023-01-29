@@ -1,9 +1,7 @@
 import React from "react";
-import { useProducts } from "../../contexts/ProdcutProvider";
 import "./ProductCard";
-import { actionTypes } from "../../state/ProductState/actionType";
-const ProductCard = ({ product }) => {
-  const { dispatch } = useProducts();
+const ProductCard = () => {
+  const product = [];
   return (
     <div className="card">
       <nav>
@@ -39,10 +37,10 @@ const ProductCard = ({ product }) => {
         </svg>
       </nav>
       <div className="photo">
-        <img src={product.image} />
+        <img src={product} />
       </div>
       <div className="description">
-        <h2>{product.model}</h2>
+        <h2>{product}</h2>
         <h4>Popular House Plant</h4>
         <h1>$18</h1>
         <p>
@@ -50,13 +48,7 @@ const ProductCard = ({ product }) => {
           planter with a blue & red ribbom and butterfly pick.
         </p>
         <div>
-          <button
-            onClick={() =>
-              dispatch({ type: actionTypes.ADD_TO_CART, payload: product })
-            }
-          >
-            Add to Cart
-          </button>
+          <button>Add to Cart</button>
           <button>Wishlist</button>
         </div>
       </div>

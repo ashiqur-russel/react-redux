@@ -1,12 +1,7 @@
 import React from "react";
-import { useProducts } from "../../contexts/ProdcutProvider";
 
 const Cart = () => {
-  const {
-    state: { cart },
-    loading,
-    error,
-  } = useProducts();
+  const cart = [];
   console.log(cart);
   return (
     <div className="shopping-cart">

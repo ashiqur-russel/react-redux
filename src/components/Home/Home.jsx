@@ -1,32 +1,16 @@
-import React, { useContext, useEffect } from "react";
-import { PRODUCT_CONTEXT, useProducts } from "../../contexts/ProdcutProvider";
-import ProductCard from "../ProductCard/ProductCard";
+import React, { useState, useEffect } from "react";
 
 const Home = () => {
-  const {
-    state: { products, loading, error },
-  } = useProducts();
-
-  let content;
-
-  if (loading) {
-    content = <p>Loading...</p>;
-  }
-
-  if (error) {
-    content = <p>Something went wrong!</p>;
-  }
-
-  if (!loading && !error && products.length) {
-    content = products.map((product, _idx) => (
-      <ProductCard key={_idx} product={product} />
-    ));
-  }
-
-  if (!loading && !error && products.length === 0) {
-    content = <p>Nothing to show , product list is empty.</p>;
-  }
-  return <div className="card-container">{content}</div>;
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch("/products.json")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setProducts(data);
+      });
+  }, []);
+  return <div className="card-container"></div>;
 };
 
 export default Home;
