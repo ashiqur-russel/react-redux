@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ProductCard from "../ProductCard/ProductCard";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -10,7 +11,13 @@ const Home = () => {
         setProducts(data);
       });
   }, []);
-  return <div className="card-container"></div>;
+  return (
+    <div className="card-container">
+      {products.map((product, _idx) => (
+        <ProductCard key={_idx} product={product} />
+      ))}
+    </div>
+  );
 };
 
 export default Home;

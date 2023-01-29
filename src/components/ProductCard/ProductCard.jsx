@@ -1,7 +1,6 @@
 import React from "react";
 import "./ProductCard";
-const ProductCard = () => {
-  const product = [];
+const ProductCard = ({ product }) => {
   return (
     <div className="card">
       <nav>
@@ -37,10 +36,10 @@ const ProductCard = () => {
         </svg>
       </nav>
       <div className="photo">
-        <img src={product} />
+        <img src={product.image} />
       </div>
       <div className="description">
-        <h2>{product}</h2>
+        <h2>{product.model}</h2>
         <h4>Popular House Plant</h4>
         <h1>$18</h1>
         <p>
