@@ -4,6 +4,7 @@ import ProductCard from "../ProductCard/ProductCard";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [item, setItem] = useState([]);
   useEffect(() => {
     fetch("/products.json")
       .then((res) => res.json())
@@ -17,7 +18,7 @@ const Home = () => {
   return (
     <div className="card-container">
       {products.map((product, _idx) => (
-        <ProductCard key={_idx} product={product} />
+        <ProductCard key={_idx} product={product} state={state} />
       ))}
     </div>
   );
