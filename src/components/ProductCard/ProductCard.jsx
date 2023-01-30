@@ -1,9 +1,14 @@
 import React from "react";
-import { useProducts } from "../../contexts/ProdcutProvider";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/actionCreators/productAction";
+import {
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+} from "../../redux/actionTypes/actionTypes";
+
 import "./ProductCard";
-import { actionTypes } from "../../state/ProductState/actionType";
 const ProductCard = ({ product }) => {
-  const { dispatch } = useProducts();
+  const dispatch = useDispatch();
   return (
     <div className="card">
       <nav>
@@ -50,11 +55,7 @@ const ProductCard = ({ product }) => {
           planter with a blue & red ribbom and butterfly pick.
         </p>
         <div>
-          <button
-            onClick={() =>
-              dispatch({ type: actionTypes.ADD_TO_CART, payload: product })
-            }
-          >
+          <button onClick={() => dispatch(addToCart(product))}>
             Add to Cart
           </button>
           <button>Wishlist</button>

@@ -1,13 +1,15 @@
 import React from "react";
-import { useProducts } from "../../contexts/ProdcutProvider";
+import { IconContext } from "react-icons";
+
+import { useDispatch, useSelector } from "react-redux";
+import { removeItemFromCart } from "../../redux/actionCreators/productAction";
+import { BsTrash } from "react-icons/bs";
 
 const Cart = () => {
-  const {
-    state: { cart },
-    loading,
-    error,
-  } = useProducts();
+  const { cart } = useSelector((state) => state);
+  const dispatch = useDispatch();
   console.log(cart);
+  console.log();
   return (
     <div className="shopping-cart">
       <div className="title">Shopping Bag</div>
@@ -34,6 +36,13 @@ const Cart = () => {
             <button style={{ border: "none", width: "20px" }}>1</button>
             <button className="minus-btn" type="button" name="button">
               -{" "}
+            </button>
+            <button style={{ border: "none", width: "30px", height: "40px" }}>
+              <BsTrash
+                style={{ border: "none", color: "red" }}
+                size={"1.5em"}
+                onClick={() => dispatch(removeItemFromCart(item))}
+              />
             </button>
           </div>
 
