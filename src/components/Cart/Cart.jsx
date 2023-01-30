@@ -33,7 +33,9 @@ const Cart = () => {
             <button className="plus-btn" type="button" name="button">
               +
             </button>
-            <button style={{ border: "none", width: "20px" }}>1</button>
+            <button style={{ border: "none", width: "20px" }}>
+              {item.quantity}
+            </button>
             <button className="minus-btn" type="button" name="button">
               -{" "}
             </button>
@@ -45,8 +47,6 @@ const Cart = () => {
               />
             </button>
           </div>
-
-          <div className="total-price">{item.price}</div>
         </div>
       ))}
     </div>

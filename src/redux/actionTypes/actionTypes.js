@@ -1,2 +1,4 @@
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+export const INCREASE_ITEM_BY_ID = "INCREASE_ITEM_BY_ID";
+export const DECREASE_ITEM_BY_ID = "DECREASE_ITEM_BY_ID";
