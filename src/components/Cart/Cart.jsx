@@ -2,7 +2,11 @@ import React from "react";
 import { IconContext } from "react-icons";
 
 import { useDispatch, useSelector } from "react-redux";
-import { removeItemFromCart } from "../../redux/actionCreators/productAction";
+import {
+  decreaseItemToCart,
+  increaseItemToCart,
+  removeItemFromCart,
+} from "../../redux/actionCreators/productAction";
 import { BsTrash } from "react-icons/bs";
 
 const Cart = () => {
@@ -30,13 +34,23 @@ const Cart = () => {
           </div>
 
           <div className="quantity">
-            <button className="plus-btn" type="button" name="button">
+            <button
+              className="plus-btn"
+              type="button"
+              name="button"
+              onClick={() => dispatch(increaseItemToCart(item))}
+            >
               +
             </button>
             <button style={{ border: "none", width: "20px" }}>
               {item.quantity}
             </button>
-            <button className="minus-btn" type="button" name="button">
+            <button
+              className="minus-btn"
+              type="button"
+              name="button"
+              onClick={() => dispatch(decreaseItemToCart(item))}
+            >
               -{" "}
             </button>
             <button style={{ border: "none", width: "30px", height: "40px" }}>

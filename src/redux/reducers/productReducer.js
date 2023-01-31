@@ -1,5 +1,6 @@
 import {
   ADD_TO_CART,
+  DECREASE_ITEM_BY_ID,
   INCREASE_ITEM_BY_ID,
   REMOVE_FROM_CART,
 } from "../actionTypes/actionTypes";
@@ -35,10 +36,19 @@ const productReducer = (state = initialState, action) => {
         cart: state.cart.filter((item) => item !== action.payload),
       };
     case INCREASE_ITEM_BY_ID:
+      if (exisitingProduct) {
+        exisitingProduct.quantity = exisitingProduct.quantity + 1;
+        return { ...state, cart: [...state.cart] };
+      }
+    case DECREASE_ITEM_BY_ID:
+      if (exisitingProduct) {
+        exisitingProduct.quantity = exisitingProduct.quantity - 1;
+      }
       return {
         ...state,
-        cart: state.cart.filter((item) => item === { ...action.payload }),
+        cart: [...state.cart],
       };
+
     default:
       return state;
   }
