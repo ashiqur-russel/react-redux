@@ -41,7 +41,7 @@ const productReducer = (state = initialState, action) => {
         return { ...state, cart: [...state.cart] };
       }
     case DECREASE_ITEM_BY_ID:
-      if (exisitingProduct && exisitingProduct.quantity !== 0) {
+      if (exisitingProduct && exisitingProduct.quantity !== 1) {
         exisitingProduct.quantity = exisitingProduct.quantity - 1;
       }
       return {
